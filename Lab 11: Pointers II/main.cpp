@@ -8,28 +8,44 @@
 #include <iostream>
 using namespace std;
 
-const int numMembers = 1;
+const int numMembers = 3;
 
 //Struct Gymperson records information about people who go to the gym
 struct Gymperson {
-    string name; //name of gym lifter
-    int maxBench; //int for max bench press
-    int *daysAtGym; //dynamic array that stores number of times going to gym a week
+    string name; //name of gym member
+    int maxBench; //max bench press for gym member
+    int *daysAtGym; //dynamic array that stores the days a member goes to the gym a week
 };
 
+//function inputGymperson gathers information about members
+//arguments: pointer to Gymperson struct
+//return: none
 void inputGymperson(Gymperson *);
+//function outputGymperson gathers information about members
+//arguments: pointer to Gymperson struct
+//return: none
 void outputGymperson(Gymperson *);
 
 int main(int argc, const char * argv[]) {
+    //create dynamic array of Gymperson struct with size numMembers
     Gymperson *members = new Gymperson[numMembers];
     
+    //looping to gather each members data
     for (int i= 0 ; i<numMembers; i++) {
         inputGymperson(&members[i]);
     }
     
+    //looping to output each members data
     for (int i = 0; i<numMembers; i++) {
         outputGymperson(&members[i]);
     }
+    
+    //loops to free each members dynamic memory
+    for (int i = 0; i < numMembers; i++) {
+        delete[] members[i].daysAtGym;  // free each member’s dynamic array
+    }
+
+    delete[] members; // free the array of Gymperson struct
     return 0;
 }
 
@@ -61,7 +77,7 @@ void outputGymperson(Gymperson *member){
         cout << "Day #" << (i+1) << ": ";
         if (member->daysAtGym[i]==1) {
             cout << "Yes" << endl;
-        } else (member->daysAtGym[i]==0){
+        } else {
             cout << "No" << endl;
         }
     }
