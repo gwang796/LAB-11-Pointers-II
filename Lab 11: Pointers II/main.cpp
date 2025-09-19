@@ -14,7 +14,6 @@ const int numMembers = 3;
 struct Gymperson {
     string name; //name of gym lifter
     int maxBench; //int for max bench press
-    int numWeeks;
     int *daysAtGym; //dynamic array that stores number of times going to gym a week
 };
 
@@ -25,10 +24,25 @@ int main(int argc, const char * argv[]) {
     Gymperson *members = new Gymperson[numMembers];
     
     for (int i= 0 ; i<numMembers; i++) {
-        //inputGymperson();
+        //inputGymperson(&members[i]);
     }
     
     for (int i = 0; i<numMembers; i++) {
-        //
+        //outGymperson(&members[i])
     }
+}
+
+void inputGymperson(Gymperson *member){
+    static int number = 1;
+    cout << "Input data for Gym member #" << number;
+    cout << "\nName: ";
+    getline(cin,member->name);
+    cout << "\nMax Bench: ";
+    cin >> member-> maxBench;
+    
+    member->daysAtGym = new int()
+}
+
+void outputGymperson(Gymperson *){
+    
 }
