@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-const int numMembers = 3;
+const int numMembers = 1;
 
 //Struct Gymperson records information about people who go to the gym
 struct Gymperson {
@@ -28,8 +28,9 @@ int main(int argc, const char * argv[]) {
     }
     
     for (int i = 0; i<numMembers; i++) {
-        //outGymperson(&members[i])
+        outputGymperson(&members[i]);
     }
+    return 0;
 }
 
 void inputGymperson(Gymperson *member){
@@ -52,6 +53,16 @@ void inputGymperson(Gymperson *member){
     number++;
 }
 
-void outputGymperson(Gymperson *){
-    
+void outputGymperson(Gymperson *member){
+    cout << "Gym member Summary: \n";
+    cout << "Name: " << member->name << endl;
+    cout << "Max Bench: " << member->maxBench << endl;
+    for (int i = 0; i < 7; i++) {
+        cout << "Day #" << (i+1) << ": ";
+        if (member->daysAtGym[i]==1) {
+            cout << "Yes" << endl;
+        } else (member->daysAtGym[i]==0){
+            cout << "No" << endl;
+        }
+    }
 }
