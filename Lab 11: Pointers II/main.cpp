@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
     Gymperson *members = new Gymperson[numMembers];
     
     for (int i= 0 ; i<numMembers; i++) {
-        //inputGymperson(&members[i]);
+        inputGymperson(&members[i]);
     }
     
     for (int i = 0; i<numMembers; i++) {
@@ -37,10 +37,19 @@ void inputGymperson(Gymperson *member){
     cout << "Input data for Gym member #" << number;
     cout << "\nName: ";
     getline(cin,member->name);
-    cout << "\nMax Bench: ";
+    cout << "Max Bench: ";
     cin >> member-> maxBench;
     
-    member->daysAtGym = new int()
+    member->daysAtGym = new int[7]; // 7 days in a week
+    cout << "Days went to the gym,  Enter in 1 for yes, and 0 for No" << endl;
+    for (int i = 0; i < 7; i++) {
+        cout << " Day " << (i+1) << ": ";
+        cin >> member->daysAtGym[i];
+    }
+    
+    cin.ignore();
+    cout << endl;
+    number++;
 }
 
 void outputGymperson(Gymperson *){
