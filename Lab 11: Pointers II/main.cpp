@@ -8,8 +8,27 @@
 #include <iostream>
 using namespace std;
 
+const int numMembers = 3;
+
+//Struct Gymperson records information about people who go to the gym
+struct Gymperson {
+    string name; //name of gym lifter
+    int maxBench; //int for max bench press
+    int numWeeks;
+    int *daysAtGym; //dynamic array that stores number of times going to gym a week
+};
+
+void inputGymperson(Gymperson *);
+void outputGymperson(Gymperson *);
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    Gymperson *members = new Gymperson[numMembers];
+    
+    for (int i= 0 ; i<numMembers; i++) {
+        //inputGymperson();
+    }
+    
+    for (int i = 0; i<numMembers; i++) {
+        //
+    }
 }
